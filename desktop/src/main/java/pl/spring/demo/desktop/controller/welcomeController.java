@@ -1,4 +1,4 @@
-package pl.spring.demo.controller;
+package pl.spring.demo.desktop.controller;
 
 
 
@@ -9,7 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import pl.spring.demo.SceneMaker;
+import pl.spring.demo.desktop.SceneMaker;
 
 
 public class welcomeController {

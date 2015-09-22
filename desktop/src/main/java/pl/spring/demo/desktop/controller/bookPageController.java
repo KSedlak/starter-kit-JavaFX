@@ -1,4 +1,4 @@
-package pl.spring.demo.controller;
+package pl.spring.demo.desktop.controller;
 
 import java.io.IOException;
 
@@ -6,8 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import pl.spring.demo.SceneMaker;
-import pl.spring.demo.dataProvider.DataProvider;
+import pl.spring.demo.desktop.SceneMaker;
+import pl.spring.demo.desktop.dataProvider.DataProvider;
 
 public class bookPageController {
 	@FXML

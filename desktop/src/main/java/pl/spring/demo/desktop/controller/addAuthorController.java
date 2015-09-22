@@ -1,8 +1,8 @@
-package pl.spring.demo.controller;
+package pl.spring.demo.desktop.controller;
 
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import pl.spring.demo.SceneMaker;
+import pl.spring.demo.desktop.SceneMaker;
 import pl.spring.demo.to.AuthorTo;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package pl.spring.demo;
+package pl.spring.demo.desktop;
 
 import java.io.IOException;
 
