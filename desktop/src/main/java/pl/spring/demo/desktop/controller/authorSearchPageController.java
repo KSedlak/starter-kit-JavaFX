@@ -3,10 +3,10 @@ package pl.spring.demo.desktop.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
@@ -15,38 +15,66 @@ import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Modality;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
 import pl.spring.demo.desktop.dataProvider.DataProvider;
+import pl.spring.demo.desktop.model.AuthorSearchModel;
 import pl.spring.demo.to.AuthorTo;
 import javafx.scene.control.TableView;
 
-public class bookSearchPageController {
+
+public class authorSearchPageController {
 	@FXML
 	Button backButton;
 	@FXML Button searchButton;
-	@FXML TableView tableBook;
+
+	@FXML TableView<AuthorTo> tableAuthor;
+
+	@FXML
+	TableColumn<AuthorTo, String> nameColumn;
+
+	@FXML
+	TableColumn<AuthorTo, String> lastNameColumn;
+
+	private final DataProvider dataProvider = DataProvider.INSTANCE;
+
+	private final AuthorSearchModel model = new AuthorSearchModel();
+
+	@FXML
+	private void initialize() {
 
 
+		tableAuthor.itemsProperty().bind(model.resultProperty());
+		initializeResultTable();
+	}
+	private void initializeResultTable() {
+
+		nameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getFirstName()));
+		lastNameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLastName()));
 
 
+		tableAuthor.setPlaceholder(new Label("empty"));
+
+
+	}
 	@FXML
 	public void backButtonAction(ActionEvent event) throws IOException {
 		  Stage stage = (Stage) backButton.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("booksMenu"));
+		  stage.setScene(SceneMaker.getSceneFromFXML("authorsMenu"));
 	}
 
 
 	@FXML
 	public void searchButtonAction(ActionEvent event){
 
-	
+
 		Task<Collection<AuthorTo>> backgroundTask = new Task<Collection<AuthorTo>>() {
 
 			@Override
 			protected Collection<AuthorTo> call() throws Exception {
-				return DataProvider.INSTANCE.findAllAuthors();
+				return dataProvider.findAllAuthors();
 			}
 		};
 
@@ -58,18 +86,17 @@ public class bookSearchPageController {
 				succes();
 				}
 			}
-			
+
 			public void succes(){
-				Collection<AuthorTo> list =backgroundTask.getValue();
-				for(AuthorTo a:list){
-					System.out.println(a.getFirstName()+"  "+ a.getLastName());
+				model.setResult(new ArrayList<AuthorTo>(backgroundTask.getValue()));
+
 				}
-			}
+
 		});
 
 
 		new Thread(backgroundTask).start();
-		
+
 				}
 
 }

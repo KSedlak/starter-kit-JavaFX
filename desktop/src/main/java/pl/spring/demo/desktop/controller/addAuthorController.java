@@ -1,11 +1,13 @@
 package pl.spring.demo.desktop.controller;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
 import pl.spring.demo.to.AuthorTo;
 
 import java.io.IOException;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +16,15 @@ import javafx.scene.control.TextField;
 public class addAuthorController {
 	@FXML
 Button	backButton;
-	@FXML TextField name;
-	@FXML TextField lastName;
-	@FXML Button saveButton;
+	@FXML
+	TextField name;
+
+	@FXML
+	TextField lastName;
+
+	@FXML
+	Button saveButton;
+
 
 
 	@FXML

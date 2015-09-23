@@ -14,6 +14,7 @@ public class DataProviderImpl implements DataProvider {
 
 	  BookClient clientBook = (BookClient) App.getContext().getBean("bookClient");
 	  AuthorClient clientAuthor = (AuthorClient) App.getContext().getBean("authorClient");
+
 	@Override
 	public  List<BookTo> findAllBooks() {
 			return clientBook.list();
