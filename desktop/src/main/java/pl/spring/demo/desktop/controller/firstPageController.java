@@ -22,7 +22,6 @@ public class firstPageController {
 	public void booksButtonAction(ActionEvent event) throws IOException {
 		  Stage stage = (Stage) books.getScene().getWindow();
 		  stage.setScene(SceneMaker.getSceneFromFXML("booksMenu"));
-		  DataProvider.INSTANCE.findAllBooks();
 	}
 
 	@FXML

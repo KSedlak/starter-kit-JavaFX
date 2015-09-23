@@ -1,4 +1,4 @@
-package pl.spring.demo.desktop.beans;
+package pl.spring.demo.desktop.dataProvider.Clients;
 
 
 

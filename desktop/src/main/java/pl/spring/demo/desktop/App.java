@@ -3,6 +3,10 @@ package pl.spring.demo.desktop;
 
 
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -21,6 +25,7 @@ public class App  extends Application
 {
 	static ApplicationContext context;
 
+
 	public static void main(String[] args) {
 	        launch(args);
 	    }
@@ -34,15 +39,17 @@ public class App  extends Application
         primaryScene.getStylesheets().add(getClass().getResource("css/standard.css").toExternalForm());
        AquaFx.style();
        context	= new ClassPathXmlApplicationContext("file:src/main/resources/pl/spring/demo/desktop/rest-config.xml");
+
 		}
 
 
-	   public static ApplicationContext getContext() {
+
+
+	public static ApplicationContext getContext() {
 		return context;
 	}
 
 	public static void setContext(ApplicationContext context) {
 		App.context = context;
 	}
-
 }
