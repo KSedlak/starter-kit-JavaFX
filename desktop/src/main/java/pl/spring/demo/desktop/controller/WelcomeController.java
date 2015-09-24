@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
 
 
-public class welcomeController {
+public class WelcomeController {
 
 
 	@FXML

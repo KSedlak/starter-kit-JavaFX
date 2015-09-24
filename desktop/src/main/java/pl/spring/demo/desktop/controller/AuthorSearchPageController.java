@@ -25,7 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 
-public class authorSearchPageController {
+public class AuthorSearchPageController {
 	@FXML
 	Button backButton;
 	@FXML Button searchButton;

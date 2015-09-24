@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
 
-public class authorsPageController {
+public class AuthorsPageController {
 	@FXML
 	Button backButton;
 

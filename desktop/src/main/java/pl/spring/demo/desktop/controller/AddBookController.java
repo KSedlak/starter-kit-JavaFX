@@ -35,7 +35,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 
-public class addBookController {
+public class AddBookController {
 	@FXML
 	Button backButton;
 
@@ -131,7 +131,7 @@ System.out.println("Dodaje ksiazke");
 
 		Stage newStage = new Stage();
 		FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/"+"addAuthorToBook"+".fxml"));
-		loader.setController(new addAuthorToBookController(model));//to share model between controlers
+		loader.setController(new AddAuthorToBookController(model));//to share model between controlers
 		Scene scene = new Scene(loader.load());
 		newStage.setScene(scene);
 		newStage.initModality(Modality.APPLICATION_MODAL);

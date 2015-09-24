@@ -24,7 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
 
-public class bookSearchPageController {
+public class BookSearchPageController {
 	@FXML
 	Button backButton;
 	@FXML Button searchButton;

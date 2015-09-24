@@ -3,6 +3,7 @@ package pl.spring.demo.desktop.dataProvider.Clients;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -15,12 +16,14 @@ import java.util.List;
 @Component
 public class BookClient {
 
-    private static final String SERVER = "http://localhost:9000/rest/books";
+	@Value("${server.bookServer}")
+    private String SERVER;;
 
     @Autowired
     private RestTemplate restTemplate;
 
     public List<BookTo> list() {
+
         String url = SERVER + "/books-by-title";
         BookTo[] books =  restTemplate.getForObject(url, BookTo[].class);
         return Arrays.asList(books);

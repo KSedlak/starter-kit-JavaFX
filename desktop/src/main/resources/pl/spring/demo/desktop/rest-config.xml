@@ -13,6 +13,8 @@
     <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
 
     </bean>
-
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+   <property name="location" value="classpath:pl/spring/demo/desktop/config/server.properties" />
+    </bean>
 
 </beans>

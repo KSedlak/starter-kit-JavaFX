@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
 
-public class firstPageController {
+public class FirstPageController {
 	@FXML
 	Button books;
 

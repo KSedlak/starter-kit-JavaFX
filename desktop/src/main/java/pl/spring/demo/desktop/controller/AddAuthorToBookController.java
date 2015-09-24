@@ -15,7 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class addAuthorToBookController {
+public class AddAuthorToBookController {
 	@FXML
 Button	backButton;
 	@FXML
@@ -31,7 +31,7 @@ Button	backButton;
 			FXCollections.observableList(new ArrayList<>()));
 	private final AuthorModel model;
 
-	public addAuthorToBookController(AuthorModel model){
+	public AddAuthorToBookController(AuthorModel model){
 	        this.model = model ;
 	    }
 
