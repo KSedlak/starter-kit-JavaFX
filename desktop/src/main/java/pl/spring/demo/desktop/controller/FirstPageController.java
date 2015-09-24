@@ -15,17 +15,15 @@ public class FirstPageController {
 	@FXML
 	Button authors;
 
-
-
 	@FXML
 	public void booksButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) books.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("booksMenu"));
+		Stage stage = (Stage) books.getScene().getWindow();
+		stage.setScene(SceneMaker.getSceneFromFXML("booksMenu"));
 	}
 
 	@FXML
 	public void authorsButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) authors.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("authorsMenu"));
+		Stage stage = (Stage) authors.getScene().getWindow();
+		stage.setScene(SceneMaker.getSceneFromFXML("authorsMenu"));
 	}
 }

@@ -6,7 +6,6 @@ package pl.spring.demo.desktop;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.aquafx_project.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -31,7 +30,7 @@ public class App  extends Application
         primaryStage.setScene(primaryScene);
         primaryStage.show();
         primaryScene.getStylesheets().add(getClass().getResource("css/standard.css").toExternalForm());
-        AquaFx.style();
+
         context	= new ClassPathXmlApplicationContext("file:src/main/resources/pl/spring/demo/desktop/rest-config.xml");
 
 		}

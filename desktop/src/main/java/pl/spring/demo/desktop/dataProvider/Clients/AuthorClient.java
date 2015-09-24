@@ -1,8 +1,7 @@
 package pl.spring.demo.desktop.dataProvider.Clients;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -17,28 +16,32 @@ import java.util.List;
 @Component
 public class AuthorClient {
 
-    private static final String SERVER = "http://localhost:9000/rest/authors";
+	@Value("${server.authorServer.list}")
+    private String toListAdress;
 
-    @Autowired
-    private RestTemplate restTemplate;
+	@Value("${server.authorServer.save}")
+    private String toSaveAdress;
 
-    public List<AuthorTo> list() {
-        String url = SERVER + "/authors-list";
-       AuthorTo[] authors=  restTemplate.getForObject(url, AuthorTo[].class);
+	@Autowired
+	private RestTemplate restTemplate;
 
-        return Arrays.asList(authors);
-    }
+	public List<AuthorTo> list() {
+		String url =toListAdress;
+		AuthorTo[] authors = restTemplate.getForObject(url, AuthorTo[].class);
 
-    public AuthorTo saveAuthor(AuthorTo aut){
-        String url = SERVER + "/author";
-    	AuthorTo returned;
-    	List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
+		return Arrays.asList(authors);
+	}
 
-    	messageConverters.add(new MappingJackson2HttpMessageConverter());
+	public AuthorTo saveAuthor(AuthorTo aut) {
+		String url = toSaveAdress;
+		AuthorTo returned;
+		List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
 
-    	restTemplate.setMessageConverters(messageConverters);
-    	returned = restTemplate.postForObject(url,aut, AuthorTo.class);
-    	return returned;
-    }
+		messageConverters.add(new MappingJackson2HttpMessageConverter());
+
+		restTemplate.setMessageConverters(messageConverters);
+		returned = restTemplate.postForObject(url, aut, AuthorTo.class);
+		return returned;
+	}
 
 }

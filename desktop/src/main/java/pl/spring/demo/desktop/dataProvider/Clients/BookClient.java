@@ -16,15 +16,17 @@ import java.util.List;
 @Component
 public class BookClient {
 
-	@Value("${server.bookServer}")
-    private String SERVER;;
+	@Value("${server.bookServer.list}")
+    private String toListAdress;
+
+	@Value("${server.bookServer.save}")
+    private String toSaveAdress;
 
     @Autowired
     private RestTemplate restTemplate;
 
     public List<BookTo> list() {
-
-        String url = SERVER + "/books-by-title";
+        String url = toListAdress;
         BookTo[] books =  restTemplate.getForObject(url, BookTo[].class);
         return Arrays.asList(books);
     }
@@ -33,7 +35,7 @@ public class BookClient {
 
     public BookTo saveBook(BookTo book){
 
-        String url = SERVER + "/book";
+        String url =toSaveAdress;
     	BookTo returned;
     	List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
     	messageConverters.add(new MappingJackson2HttpMessageConverter());

@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 
 public class AddAuthorController {
 	@FXML
-Button	backButton;
+	Button backButton;
 	@FXML
 	TextField name;
 
@@ -28,54 +28,48 @@ Button	backButton;
 	@FXML
 	Button saveButton;
 
-
-
 	@FXML
 	public void backButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) backButton.getScene().getWindow();
-		  stage.close();
-	}
-
-
-	@FXML public void saveButtonAction(ActionEvent event) {
-
-		AuthorTo author=new AuthorTo(null, name.getText(), lastName.getText());
-		  Stage stage = (Stage) saveButton.getScene().getWindow();
-		  Task<AuthorTo> backgroundTask = new Task<AuthorTo>() {
-
-				@Override
-				protected AuthorTo call() throws Exception {
-					return DataProvider.INSTANCE.saveAuthor(author);
-				}
-			};
-
-
-			backgroundTask.stateProperty().addListener(new ChangeListener<Worker.State>() {
-				@Override
-				public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
-					if (newValue == State.SUCCEEDED) {
-					succes();
-					}
-				}
-
-				public void succes(){
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("Dodano autora");
-					alert.setHeaderText("Pomyslnie dodano autora do bazy");
-					alert.setContentText("Dadany autor to: "+backgroundTask.getValue().getFirstName()
-							+" "+backgroundTask.getValue().getLastName()
-					);
-
-					alert.showAndWait();
-
-					}
-
-			});
-
-
-			new Thread(backgroundTask).start();
+		Stage stage = (Stage) backButton.getScene().getWindow();
 		stage.close();
 	}
 
+	@FXML
+	public void saveButtonAction(ActionEvent event) {
+
+		AuthorTo author = new AuthorTo(null, name.getText(), lastName.getText());
+		Stage stage = (Stage) saveButton.getScene().getWindow();
+		Task<AuthorTo> backgroundTask = new Task<AuthorTo>() {
+
+			@Override
+			protected AuthorTo call() throws Exception {
+				return DataProvider.INSTANCE.saveAuthor(author);
+			}
+		};
+
+		backgroundTask.stateProperty().addListener(new ChangeListener<Worker.State>() {
+			@Override
+			public void changed(ObservableValue<? extends State> observable, State oldValue, State newValue) {
+				if (newValue == State.SUCCEEDED) {
+					succes();
+				}
+			}
+
+			public void succes() {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Dodano autora");
+				alert.setHeaderText("Pomyslnie dodano autora do bazy");
+				alert.setContentText("Dadany autor to: " + backgroundTask.getValue().getFirstName() + " "
+						+ backgroundTask.getValue().getLastName());
+
+				alert.showAndWait();
+
+			}
+
+		});
+
+		new Thread(backgroundTask).start();
+		stage.close();
+	}
 
 }

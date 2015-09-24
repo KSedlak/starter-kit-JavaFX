@@ -19,32 +19,28 @@ public class AuthorsPageController {
 	@FXML
 	Button searchButton;
 
-
 	@FXML
 	public void addButtonAction(ActionEvent event) throws IOException {
 
-		  Stage newStage = new Stage();
-		  newStage.setScene(SceneMaker.getSceneFromFXML("addAuthor"));
+		Stage newStage = new Stage();
+		newStage.setScene(SceneMaker.getSceneFromFXML("addAuthor"));
 
-		     newStage.initModality(Modality.APPLICATION_MODAL);
-		     newStage.setTitle("Dodaj autora");
-		     newStage.showAndWait();
-
+		newStage.initModality(Modality.APPLICATION_MODAL);
+		newStage.setTitle("Dodaj autora");
+		newStage.showAndWait();
 
 	}
 
 	@FXML
 	public void searchBookButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) searchButton.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("searchAuthor"));
+		Stage stage = (Stage) searchButton.getScene().getWindow();
+		stage.setScene(SceneMaker.getSceneFromFXML("searchAuthor"));
 	}
-
 
 	@FXML
 	public void backButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) backButton.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("firstPage"));
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.setScene(SceneMaker.getSceneFromFXML("firstPage"));
 	}
-
 
 }

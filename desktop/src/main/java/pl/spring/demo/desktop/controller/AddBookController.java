@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
@@ -90,7 +89,7 @@ public class AddBookController {
 		BookTo bookToSave = new BookTo();
 		bookToSave.setTitle(titleField.getText());
 		addAuthorsToBook(bookToSave);
-System.out.println("Dodaje ksiazke");
+		System.out.println("Dodaje ksiazke");
 		Stage stage = (Stage) saveButton.getScene().getWindow();
 		Task<BookTo> backgroundTask = new Task<BookTo>() {
 
@@ -130,8 +129,11 @@ System.out.println("Dodaje ksiazke");
 	public void addAuthor(ActionEvent event) throws IOException {
 
 		Stage newStage = new Stage();
-		FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/"+"addAuthorToBook"+".fxml"));
-		loader.setController(new AddAuthorToBookController(model));//to share model between controlers
+		FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/" + "addAuthorToBook" + ".fxml"));
+		loader.setController(new AddAuthorToBookController(model));// to share
+																	// model
+																	// between
+																	// controlers
 		Scene scene = new Scene(loader.load());
 		newStage.setScene(scene);
 		newStage.initModality(Modality.APPLICATION_MODAL);
@@ -139,8 +141,8 @@ System.out.println("Dodaje ksiazke");
 		newStage.showAndWait();
 	}
 
-	public void addAuthorsToBook(BookTo book){
-		Set<AuthorTo> auth= new HashSet<AuthorTo>(model.resultProperty());
+	public void addAuthorsToBook(BookTo book) {
+		Set<AuthorTo> auth = new HashSet<AuthorTo>(model.resultProperty());
 		book.setAuthors(auth);
 	}
 

@@ -1,6 +1,5 @@
 package pl.spring.demo.desktop.controller;
 
-
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.Model.AuthorModel;
@@ -17,7 +16,7 @@ import javafx.scene.control.TextField;
 
 public class AddAuthorToBookController {
 	@FXML
-Button	backButton;
+	Button backButton;
 	@FXML
 	TextField name;
 
@@ -27,25 +26,19 @@ Button	backButton;
 	@FXML
 	Button saveButton;
 
-	private final ListProperty<AuthorTo> added= new SimpleListProperty<>(
+	private final ListProperty<AuthorTo> added = new SimpleListProperty<>(
 			FXCollections.observableList(new ArrayList<>()));
 	private final AuthorModel model;
 
-	public AddAuthorToBookController(AuthorModel model){
-	        this.model = model ;
-	    }
-
-
+	public AddAuthorToBookController(AuthorModel model) {
+		this.model = model;
+	}
 
 	@FXML
 	private void initialize() {
 
-
-
-		saveButton.disableProperty().bind(
-				Bindings.isEmpty(name.textProperty())
-				.and(Bindings.isEmpty(lastName.textProperty()))
-						);
+		saveButton.disableProperty()
+				.bind(Bindings.isEmpty(name.textProperty()).and(Bindings.isEmpty(lastName.textProperty())));
 
 		added.bind(model.resultProperty());
 
@@ -53,16 +46,15 @@ Button	backButton;
 
 	@FXML
 	public void backButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) backButton.getScene().getWindow();
-		  stage.close();
+		Stage stage = (Stage) backButton.getScene().getWindow();
+		stage.close();
 	}
 
-
-	@FXML public void saveButtonAction(ActionEvent event) {
-		  Stage stage = (Stage) saveButton.getScene().getWindow();
-		  added.add(new AuthorTo(null,name.getText(),lastName.getText()));
-		  stage.close();
+	@FXML
+	public void saveButtonAction(ActionEvent event) {
+		Stage stage = (Stage) saveButton.getScene().getWindow();
+		added.add(new AuthorTo(null, name.getText(), lastName.getText()));
+		stage.close();
 	}
-
 
 }
