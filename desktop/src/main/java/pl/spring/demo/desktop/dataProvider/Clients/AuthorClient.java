@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import pl.spring.demo.to.AuthorTo;
@@ -36,13 +34,10 @@ public class AuthorClient {
     	AuthorTo returned;
     	List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
 
-    	//Add the Jackson Message converter
     	messageConverters.add(new MappingJackson2HttpMessageConverter());
 
-    	//Add the message converters to the restTemplate
     	restTemplate.setMessageConverters(messageConverters);
     	returned = restTemplate.postForObject(url,aut, AuthorTo.class);
-    	System.out.println(returned.getFirstName());
     	return returned;
     }
 

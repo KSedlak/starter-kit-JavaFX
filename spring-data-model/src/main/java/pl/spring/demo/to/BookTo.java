@@ -47,5 +47,12 @@ public class BookTo {
 		this.authors = authors;
 	}
 
-    
+	public String getAuthorsString(){
+		String returned="";
+		for(AuthorTo a:authors){
+			returned=returned+a.getFirstName()+" "+a.getLastName()+", ";
+		}
+return returned.substring(0,returned.length()-2);
+	}
+
 }

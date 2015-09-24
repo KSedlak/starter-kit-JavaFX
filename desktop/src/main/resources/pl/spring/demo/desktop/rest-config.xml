@@ -10,6 +10,9 @@
     <context:annotation-config />
     <context:component-scan base-package="pl.spring.demo.desktop"/>
 
-    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+    <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+
+    </bean>
+
 
 </beans>

@@ -22,7 +22,7 @@ public class authorsPageController {
 
 	@FXML
 	public void addButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) addButton.getScene().getWindow();
+
 		  Stage newStage = new Stage();
 		  newStage.setScene(SceneMaker.getSceneFromFXML("addAuthor"));
 

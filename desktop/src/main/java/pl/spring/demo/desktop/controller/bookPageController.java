@@ -5,9 +5,9 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
-import pl.spring.demo.desktop.dataProvider.DataProvider;
 
 public class bookPageController {
 	@FXML
@@ -22,8 +22,14 @@ public class bookPageController {
 
 	@FXML
 	public void addButtonAction(ActionEvent event) throws IOException {
-		  Stage stage = (Stage) addButton.getScene().getWindow();
-		  stage.setScene(SceneMaker.getSceneFromFXML("addBook"));
+
+		  Stage newStage = new Stage();
+		  newStage.setScene(SceneMaker.getSceneFromFXML("addBook"));
+
+		     newStage.initModality(Modality.APPLICATION_MODAL);
+		     newStage.setTitle("Dodaj ksiazke");
+		     newStage.showAndWait();
+
 	}
 
 	@FXML

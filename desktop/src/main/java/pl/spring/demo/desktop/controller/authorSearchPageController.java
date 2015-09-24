@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
-
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -19,10 +18,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
+import pl.spring.demo.desktop.Model.AuthorModel;
 import pl.spring.demo.desktop.dataProvider.DataProvider;
-import pl.spring.demo.desktop.model.AuthorSearchModel;
 import pl.spring.demo.to.AuthorTo;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 
 public class authorSearchPageController {
@@ -40,13 +40,19 @@ public class authorSearchPageController {
 
 	private final DataProvider dataProvider = DataProvider.INSTANCE;
 
-	private final AuthorSearchModel model = new AuthorSearchModel();
+	private final AuthorModel model = new AuthorModel();
+	@FXML TextField name;
+	@FXML TextField lastName;
 
 	@FXML
 	private void initialize() {
 
 
 		tableAuthor.itemsProperty().bind(model.resultProperty());
+		searchButton.disableProperty().bind(
+				Bindings.isEmpty(name.textProperty())
+			    .and(Bindings.isEmpty(lastName.textProperty())));
+
 		initializeResultTable();
 	}
 	private void initializeResultTable() {
@@ -55,7 +61,7 @@ public class authorSearchPageController {
 		lastNameColumn.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().getLastName()));
 
 
-		tableAuthor.setPlaceholder(new Label("empty"));
+		tableAuthor.setPlaceholder(new Label("Brak wynikow wyszukiwania"));
 
 
 	}
@@ -74,7 +80,7 @@ public class authorSearchPageController {
 
 			@Override
 			protected Collection<AuthorTo> call() throws Exception {
-				return dataProvider.findAllAuthors();
+				return dataProvider.findAuthors(name.getText(), lastName.getText());
 			}
 		};
 

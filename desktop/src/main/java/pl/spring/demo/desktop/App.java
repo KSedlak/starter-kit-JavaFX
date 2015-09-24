@@ -3,17 +3,11 @@ package pl.spring.demo.desktop;
 
 
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.aquafx_project.*;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -37,8 +31,8 @@ public class App  extends Application
         primaryStage.setScene(primaryScene);
         primaryStage.show();
         primaryScene.getStylesheets().add(getClass().getResource("css/standard.css").toExternalForm());
-       AquaFx.style();
-       context	= new ClassPathXmlApplicationContext("file:src/main/resources/pl/spring/demo/desktop/rest-config.xml");
+        AquaFx.style();
+        context	= new ClassPathXmlApplicationContext("file:src/main/resources/pl/spring/demo/desktop/rest-config.xml");
 
 		}
 

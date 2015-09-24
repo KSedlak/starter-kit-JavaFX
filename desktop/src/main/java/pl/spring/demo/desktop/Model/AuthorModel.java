@@ -1,4 +1,4 @@
-package pl.spring.demo.desktop.model;
+package pl.spring.demo.desktop.Model;
 
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import javafx.collections.FXCollections;
 import pl.spring.demo.to.AuthorTo;
 
 
-public class AuthorSearchModel {
+public class AuthorModel {
 
     private final StringProperty firstName;
     private final StringProperty lastName;
@@ -22,11 +22,11 @@ public class AuthorSearchModel {
 
 
 
-    public  AuthorSearchModel() {
+    public  AuthorModel() {
         this(null, null);
     }
 
-    public  AuthorSearchModel(String firstName, String lastName) {
+    public  AuthorModel(String firstName, String lastName) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
 

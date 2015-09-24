@@ -14,6 +14,9 @@ public interface DataProvider {
 
 
 	List<BookTo> findAllBooks();
+	List<BookTo> findBooks(String title, String name, String lastName);
 	List<AuthorTo> findAllAuthors();
+	List<AuthorTo> findAuthors(String name,String last);
 	AuthorTo saveAuthor(AuthorTo a);
+	BookTo saveBook(BookTo a);
 }
