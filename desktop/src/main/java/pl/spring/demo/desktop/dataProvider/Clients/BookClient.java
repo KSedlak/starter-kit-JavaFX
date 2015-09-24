@@ -35,11 +35,8 @@ public class BookClient {
 
         String url = SERVER + "/book";
     	BookTo returned;
-    	System.out.println("Dodaje ksiazke foire");
     	List<HttpMessageConverter<?>> messageConverters = new ArrayList<HttpMessageConverter<?>>();
-
     	messageConverters.add(new MappingJackson2HttpMessageConverter());
-
     	restTemplate.setMessageConverters(messageConverters);
     	returned = restTemplate.postForObject(url,book, BookTo.class);
     	return returned;

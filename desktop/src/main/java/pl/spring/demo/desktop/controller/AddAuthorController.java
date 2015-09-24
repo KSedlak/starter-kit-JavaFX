@@ -74,8 +74,6 @@ Button	backButton;
 
 
 			new Thread(backgroundTask).start();
-
-		  DataProvider.INSTANCE.saveAuthor(author);
 		stage.close();
 	}
 
