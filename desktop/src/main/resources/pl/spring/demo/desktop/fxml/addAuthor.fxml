@@ -13,7 +13,7 @@
             <Label text="Imie" />
             <TextField fx:id="name" />
             <Label text="Nazwisko" />
-            <TextField />
+            <TextField  fx:id="lastName"/>
             <Separator prefHeight="64.0" prefWidth="392.0" />
             <Pane prefHeight="70.0" prefWidth="392.0">
                <children>
@@ -21,7 +21,7 @@
                     <buttons>
 
                         <Button fx:id="backButton" mnemonicParsing="false" onAction="#backButtonAction" text="Anuluj" />
-                      <Button mnemonicParsing="false" text="Zapisz" />
+                      <Button fx:id="saveButton" mnemonicParsing="false" text="Zapisz" onAction="#saveButtonAction" />
                     </buttons>
                   </ButtonBar>
                </children>

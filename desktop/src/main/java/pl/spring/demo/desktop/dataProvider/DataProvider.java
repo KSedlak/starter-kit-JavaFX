@@ -15,4 +15,5 @@ public interface DataProvider {
 
 	List<BookTo> findAllBooks();
 	List<AuthorTo> findAllAuthors();
+	AuthorTo saveAuthor(AuthorTo a);
 }

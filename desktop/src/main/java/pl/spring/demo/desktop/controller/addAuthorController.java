@@ -4,6 +4,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 import pl.spring.demo.desktop.SceneMaker;
+import pl.spring.demo.desktop.dataProvider.DataProvider;
 import pl.spring.demo.to.AuthorTo;
 
 import java.io.IOException;
@@ -38,6 +39,8 @@ Button	backButton;
 
 		AuthorTo author=new AuthorTo(null, name.getText(), lastName.getText());
 		  Stage stage = (Stage) saveButton.getScene().getWindow();
+
+		  DataProvider.INSTANCE.saveAuthor(author);
 		stage.close();
 	}
 

@@ -23,5 +23,9 @@ public class DataProviderImpl implements DataProvider {
 	public List<AuthorTo> findAllAuthors() {
 		return clientAuthor.list();
 	}
+	@Override
+	public AuthorTo saveAuthor(AuthorTo a) {
+		return clientAuthor.saveAuthor(a);
+	}
 
 }
