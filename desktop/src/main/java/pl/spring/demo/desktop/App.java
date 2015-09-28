@@ -1,19 +1,14 @@
 package pl.spring.demo.desktop;
 
 
-
-
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.spring.demo.desktop.sceneMaker.SceneMaker;
 
-/**
- * Hello world!
- *
- */
+
 public class App  extends Application
 {
 	static ApplicationContext context;

@@ -130,10 +130,7 @@ public class AddBookController {
 
 		Stage newStage = new Stage();
 		FXMLLoader loader = new FXMLLoader(App.class.getResource("fxml/" + "addAuthorToBook" + ".fxml"));
-		loader.setController(new AddAuthorToBookController(model));// to share
-																	// model
-																	// between
-																	// controlers
+		loader.setController(new AddAuthorToBookController(model));
 		Scene scene = new Scene(loader.load());
 		newStage.setScene(scene);
 		newStage.initModality(Modality.APPLICATION_MODAL);

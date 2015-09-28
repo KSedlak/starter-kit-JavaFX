@@ -1,4 +1,4 @@
-package pl.spring.demo.desktop;
+package pl.spring.demo.desktop.sceneMaker;
 
 import java.io.IOException;
 
@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import pl.spring.demo.desktop.App;
 
 public class SceneMaker {
 

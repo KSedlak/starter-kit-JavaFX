@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import pl.spring.demo.desktop.SceneMaker;
+import pl.spring.demo.desktop.sceneMaker.SceneMaker;
 
 public class FirstPageController {
 	@FXML
